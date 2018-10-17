@@ -1,0 +1,26 @@
+<div class="container mt-5">
+  <h2 class="mb-5 ml-5">
+   List of plans!
+  </h2>
+
+  <div class="alert alert-warning" *ngIf="!services || services.length==0">
+    <fa name="exclamation-triangle"></fa> Records could not be found or loaded
+  </div>
+
+  <div class="row" *ngIf="services && services.length>0">
+    <div class="col-lg-2 ml-1 mb-1" *ngFor="let c of services">
+      <div class="card" (mouseover)="cf.hidden=false" (mouseleave)="cf.hidden=true">
+      
+        <div class="card-body">
+          <h6 class="card-title">{{c.title|adjustLength:12}}</h6>
+          <p class="card-text">
+            {{c.speed|adjustLength:13}}
+            <br /> {{c.maxUsage}}
+            <br /> {{c.chargePM}}
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
